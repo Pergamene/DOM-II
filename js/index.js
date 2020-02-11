@@ -1,4 +1,7 @@
 const textItems = document.querySelectorAll('h1, h2, h4, a, p');
+const busImg = document.querySelector('img');
+const imgContent = document.querySelectorAll('.img-content');
+const boatImg = document.querySelector('.content-destination img');
 
 // resize
 window.addEventListener('resize', () => {
@@ -11,6 +14,7 @@ window.addEventListener('resize', () => {
 window.addEventListener('scroll', () => {
   textItems.forEach(textItem => {
     textItem.style['letter-spacing'] = 'normal';
+    textItem.style.color = 'black';
   });
 });
 
@@ -33,13 +37,44 @@ window.addEventListener('keyup', event => {
 });
 
 // click
+busImg.addEventListener('click', () => {
+  gsap.to(busImg, {
+    duration: 1,
+    rotateY: 360
+  });
+});
 
 // dblclick
+imgContent.forEach(img => {
+  img.addEventListener('dblclick', () => {
+    img.style.display = 'none';
+  });
+});
 
 // mousedown
+boatImg.addEventListener('mousedown', () => {
+  imgContent.forEach(img => {
+    img.style.display = 'block';
+  });
+});
 
 // mouseenter
+busImg.addEventListener('mouseenter', () => {
+  textItems.forEach(textItem => {
+    textItem.style['font-style'] = 'italic';
+  });
+});
+
+// mouseleave
+busImg.addEventListener('mouseleave', () => {
+  textItems.forEach(textItem => {
+    textItem.style['font-style'] = 'normal';
+  });
+});
 
 // mousemove
-
-// select
+window.addEventListener('mousemove', () => {
+  textItems.forEach(textItem => {
+    textItem.style.color = 'red';
+  });
+});
