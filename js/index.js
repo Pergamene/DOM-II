@@ -3,6 +3,9 @@ const busImg = document.querySelector('img');
 const imgContent = document.querySelectorAll('.img-content');
 const boatImg = document.querySelector('.content-destination img');
 
+const navBar = document.querySelector('nav');
+const navItems = document.querySelectorAll('a');
+
 // resize
 window.addEventListener('resize', event => {
   textItems.forEach(textItem => {
@@ -16,6 +19,10 @@ window.addEventListener('scroll', event => {
   textItems.forEach(textItem => {
     textItem.style['letter-spacing'] = 'normal';
     textItem.style.color = 'black';
+  });
+  navBar.style['background'] = 'none';
+  navItems.forEach(navItem => {
+    navItem.style['background'] = 'none';
   });
   event.preventDefault();
 });
@@ -90,8 +97,6 @@ window.addEventListener('mousemove', event => {
 });
 
 // propagation
-const navBar = document.querySelector('nav');
-const navItems = document.querySelectorAll('a');
 
 navBar.addEventListener('mouseover', event => {
   navBar.style['background-color'] = 'blue';
