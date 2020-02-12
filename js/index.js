@@ -53,8 +53,8 @@ busImg.addEventListener('click', event => {
 imgContent.forEach(img => {
   img.addEventListener('dblclick', event => {
     img.style.display = 'none';
+    event.preventDefault();
   });
-  event.preventDefault();
 });
 
 // mousedown
@@ -87,4 +87,21 @@ window.addEventListener('mousemove', event => {
     textItem.style.color = 'red';
   });
   event.preventDefault();
+});
+
+// propagation
+const navBar = document.querySelector('nav');
+const navItems = document.querySelectorAll('a');
+
+navBar.addEventListener('mouseover', event => {
+  navBar.style['background-color'] = 'blue';
+  event.preventDefault();
+});
+
+navItems.forEach(item => {
+  item.addEventListener('mouseover', event => {
+    item.style['background-color'] = 'green';
+    event.stopPropagation();
+    event.preventDefault();
+  });
 });
